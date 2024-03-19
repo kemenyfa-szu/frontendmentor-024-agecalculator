@@ -1,37 +1,103 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
 
-  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
-  
-  <title>Frontend Mentor | Age calculator app</title>
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./assets/images/favicon-32x32.png"
+    />
 
-  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
-  <style>
-    .attribution { font-size: 11px; text-align: center; }
-    .attribution a { color: hsl(228, 45%, 44%); }
-  </style>
-</head>
-<body>
+    <title>Frontend Mentor | Age calculator app</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,700;0,800;1,400;1,800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main>
+      <section class="age-calculator">
+        <form
+          action="#"
+          method="post"
+          onsubmit="return ValidateBirthdate()"
+          novalidate
+        >
+          <div class="inputs" id="inputs">
+            <div class="input-container" id="dayContainer">
+              <label for="day"> Day </label>
+              <input
+                type="text"
+                name="day"
+                id="day"
+                placeholder="DD"
+                onchange="ValidateDay()"
+              />
+              <p class="error-text" id="dayError" role="alert"></p>
+            </div>
+            <div class="input-container" id="monthContainer">
+              <label for="month"> Month </label>
+              <input
+                type="text"
+                name="month"
+                id="month"
+                placeholder="MM"
+                onchange="ValidateMonth()"
+              />
+              <p class="error-text" id="monthError" role="alert"></p>
+            </div>
+            <div class="input-container" id="yearContainer">
+              <label for="year"> Year </label>
+              <input
+                type="text"
+                name="year"
+                id="year"
+                placeholder="YYYY"
+                onchange="ValidateYear()"
+              />
+              <p class="error-text" id="yearError" role="alert"></p>
+            </div>
+            <p class="error-text" id="dateError" role="alert"></p>
+          </div>
+          <div class="divider-container">
+            <hr id="divider1" />
+            <input
+              type="image"
+              src="./assets/images/icon-arrow.svg"
+              alt="Submit form"
+              id="submit"
+            />
+            <hr id="divider2" />
+          </div>
+        </form>
+        <article class="your-age">
+          <p><strong id="years">--</strong>years</p>
+          <p><strong id="months">--</strong>months</p>
+          <p><strong id="days">--</strong>days</p>
+        </article>
+      </section>
+    </main>
 
-  Day
-  DD
-
-  Month
-  MM
-
-  Year
-  YYYY
-
-  -- years
-  -- months
-  -- days
-  
-  <div class="attribution">
-    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
-    Coded by <a href="#">Your Name Here</a>.
-  </div>
-</body>
+    <footer>
+      <div class="attribution">
+        <p>
+          Challenge by
+          <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
+            >Frontend Mentor</a
+          >. Coded by
+          <a href="https://www.frontendmentor.io/profile/kemenyfa-szu"
+            >kemenyfa-szu</a
+          >.
+        </p>
+      </div>
+    </footer>
+    <script src="script.js"></script>
+  </body>
 </html>

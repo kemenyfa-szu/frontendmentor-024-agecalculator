@@ -1,0 +1,234 @@
+:root {
+  /* Primary */
+  --purple: hsl(259, 100%, 65%);
+  --light-purple: hsl(259, 100%, 72%);
+  --bright-purple: hsl(259, 100%, 80%);
+  --light-red: hsl(0, 100%, 67%);
+
+  /* Neutral */
+
+  --white: hsl(0, 0%, 100%);
+  --off-white: hsl(0, 0%, 94%);
+  --light-grey: hsl(0, 0%, 86%);
+  --smokey-grey: hsl(0, 1%, 44%);
+  --off-black: hsl(0, 0%, 8%);
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--off-white);
+  color: var(--off-black);
+  font-family: "Poppins", Arial, Helvetica, sans-serif;
+}
+
+main {
+  min-height: 100vh;
+  padding-top: clamp(5.5rem, calc(4rem + 10vw), 9rem);
+  padding-inline: 5vw;
+}
+
+.age-calculator {
+  max-width: min(100%, 52rem);
+  background-color: var(--white);
+  padding-block: clamp(3rem, 5vw, 4rem);
+  padding-inline: clamp(1.25rem, 4vw, 3.25rem);
+  border-radius: 25px 25px calc(50px + 15vw) 25px;
+  margin-inline: auto;
+}
+
+p {
+  font-size: clamp(2.25rem, calc(1.5rem + 8vw), 6.5rem);
+  font-weight: 800;
+  font-style: italic;
+  line-height: 1.1em;
+  overflow: hidden;
+}
+
+form {
+  font-family: "Poppins", Arial, Helvetica, sans-serif;
+  display: grid;
+
+  color: var(--smokey-grey);
+}
+
+.inputs {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  column-gap: min(1.75rem, 5%);
+}
+
+.input-container {
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  font-size: clamp(0.75rem, calc(0.5rem + 0.25vw), 1rem);
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  margin-bottom: 0.25rem;
+}
+
+input {
+  font-family: "Poppins", Arial, Helvetica, sans-serif;
+  color: var(--off-black);
+}
+
+input[type="text"] {
+  display: block;
+  width: 100%;
+  font-size: clamp(1.25rem, calc(0.5rem + 2.5vw), 2rem);
+  font-weight: 700;
+  padding: 0.5em 0.75em;
+  border-radius: 5px;
+  border: 1px solid var(--light-grey);
+}
+
+input[type="text"]:hover {
+  cursor: pointer;
+}
+
+input[type="text"]:focus {
+  outline: 1px solid var(--purple);
+  caret-color: var(--purple);
+}
+
+input::placeholder {
+  color: var(--smokey-grey);
+}
+
+strong {
+  color: var(--purple);
+  font-style: italic;
+  font-weight: 800;
+  display: inline-block;
+}
+
+strong.slide-in {
+  -webkit-animation: slide-in 0.5s normal forwards ease-out;
+  -moz-animation: slide-in 0.5s normal forwards ease-out;
+  animation: slide-in 0.5s normal linear;
+  animation-iteration-count: 1;
+}
+
+.divider-container {
+  grid-column: 1/5;
+  grid-row: 2/3;
+
+  display: flex;
+  align-items: center;
+}
+
+.divider-container hr {
+  flex-grow: 1;
+  height: 1px;
+  border: none;
+  border-bottom: 2px solid var(--light-grey);
+}
+
+input[type="image"] {
+  display: block;
+  background-color: var(--purple);
+  padding: max(3.5%, 1rem);
+  min-width: 4rem;
+  width: 13%;
+  max-width: 6.5rem;
+  border-radius: 50%;
+  aspect-ratio: 1;
+}
+
+input[type="image"]:hover {
+  background-color: var(--light-purple);
+}
+
+input[type="image"]:active {
+  background-color: var(--bright-purple);
+}
+
+button {
+  border: none;
+}
+
+img {
+  width: 100%;
+}
+
+.error-text {
+  display: none;
+  font-size: 0.875rem;
+  font-weight: 400;
+  color: var(--light-red);
+  margin-top: 0.5em;
+}
+
+.input-container.error label,
+.input-container.error .error-text,
+.inputs.date-error label,
+.inputs.date-error .error-text {
+  color: var(--light-red);
+}
+
+.input-container.error input[type="text"],
+.inputs.date-error input[type="text"] {
+  border-color: var(--light-red);
+}
+
+.error .error-text,
+.date-error .error-text {
+  display: block;
+}
+
+#dateError {
+  grid-column: 1/4;
+}
+
+@media screen and (max-width: 639px) {
+  .divider-container {
+    margin-block: 2rem;
+  }
+}
+
+@media screen and (min-width: 640px) {
+  .inputs {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  #submit + hr {
+    display: none;
+  }
+
+  p strong {
+    letter-spacing: 10px;
+  }
+}
+
+.attribution {
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+}
+.attribution p {
+  font-size: 11px;
+  font-weight: 400;
+  font-style: normal;
+  text-align: center;
+  margin-bottom: 0.5em;
+}
+.attribution a {
+  color: hsl(228, 45%, 44%);
+}
+
+@keyframes slide-in {
+  0% {
+    transform: translateY(-1em);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
